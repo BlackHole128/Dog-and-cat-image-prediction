@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".SiginUp"
+    android:orientation="vertical"
+    android:id="@+id/mysignup"
+    android:background="#87CEEB">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:elevation="20dp"
+       android:layout_gravity="fill"
+        android:padding="20dp"
+        app:cardCornerRadius="20dp"
+       app:cardElevation="@dimen/cardview_default_radius"
+        app:cardBackgroundColor="#FFB6C1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_margin="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Name"
+                android:textColorHint="#304c5e"
+                android:textColor="#304c5e"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/birthDay"
+                android:layout_margin="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edittext_background"
+                android:focusable="false"
+                android:hint="Set Birth Date (dd/mm/yy)"
+                android:textColorHint="#304c5e"
+                android:textColor="#304c5e"
+                android:inputType="date"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/mobilenumber"
+                android:layout_margin="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edittext_background"
+                android:hint="mobilenumber"
+                android:textColorHint="#304c5e"
+                android:textColor="#304c5e"
+                android:maxLength="11"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_margin="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edittext_background"
+                android:hint="email"
+                android:textColorHint="#304c5e"
+                android:textColor="#304c5e"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/usedEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:textAlignment="center"
+                android:textColor="#FF0000" />
+
+            <EditText
+                android:id="@+id/password2"
+                android:layout_margin="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_background"
+                android:focusable="auto"
+                android:hint="password"
+                android:textColorHint="#304c5e"
+                android:textColor="#304c5e"
+                android:padding="10dp" />
+
+            <Button
+                android:id="@+id/signup2"
+                android:layout_margin="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="sign up" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
