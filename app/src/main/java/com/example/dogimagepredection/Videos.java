@@ -14,5 +14,6 @@ public class Videos extends AppCompatActivity {
         setContentView(R.layout.activity_videos);
 
         youTubePlayerView = findViewById(R.id.youtubePalyer);
+
     }
 }

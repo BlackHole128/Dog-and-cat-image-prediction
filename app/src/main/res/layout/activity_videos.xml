@@ -10,9 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/youtubePalyer"
-        app:videoId="_5RDXJOq2ro"
-        app:autoPlay="true">
-
-    </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
+        app:videoId="07d2dXHYb94"
+        app:autoPlay="true"
+        />
 
 </LinearLayout>
