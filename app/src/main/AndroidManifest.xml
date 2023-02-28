@@ -19,6 +19,9 @@
         android:theme="@style/Theme.DogImagePredection"
         tools:targetApi="31">
         <activity
+            android:name=".Videos"
+            android:exported="false" />
+        <activity
             android:name=".Home"
             android:exported="false" />
         <activity
