@@ -20,6 +20,18 @@ public class sign_in extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     ProgressDialog progressDialog;
 
+
+    protected void onStart(){
+        super.onStart();
+
+        SessionManeger sessionManeger = new SessionManeger(sign_in.this);
+        int userID = sessionManeger.getSession();
+        if (userID !=-1){
+            Intent intent = new Intent(getApplicationContext(), Home.class);
+            startActivity(intent);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +53,7 @@ public class sign_in extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
+
         binding.signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,9 +67,15 @@ public class sign_in extends AppCompatActivity {
                                @Override
                                public void onSuccess(AuthResult authResult) {
 
+                                   UserS userS = new UserS(password,email);
+
+                                   SessionManeger sessionManeger = new SessionManeger(sign_in.this);
+                                   sessionManeger.saveSession(userS);
+
                                    Intent intent = new Intent(getApplicationContext(), Home.class);
                                    startActivity(intent);
                                    progressDialog.cancel();
+
                                }
                            })
                            .addOnFailureListener(new OnFailureListener() {
@@ -66,6 +85,7 @@ public class sign_in extends AppCompatActivity {
                                    progressDialog.cancel();
                                }
                            });
+
                }
                catch (Exception e){
                    Toast.makeText(sign_in.this,e.getMessage(),Toast.LENGTH_SHORT).show();

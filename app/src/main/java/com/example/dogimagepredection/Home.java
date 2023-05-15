@@ -37,6 +37,16 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        binding.logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SessionManeger sessionManeger= new SessionManeger(Home.this);
+                sessionManeger.remmoveSesssion();
+                Intent intent = new Intent(getApplicationContext(),sign_in.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
     }
 }
