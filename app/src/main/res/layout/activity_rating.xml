@@ -19,7 +19,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="40dp"
             android:layout_marginBottom="20dp"
-            android:text="Rate our App"
+            android:text="Review"
+            android:textAlignment="center"
             android:textColor="#554949"
             android:textSize="30dp"
             android:textStyle="bold" />
@@ -30,6 +31,7 @@
         android:id="@+id/rateRatingBar_Id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         >
 
     </RatingBar>

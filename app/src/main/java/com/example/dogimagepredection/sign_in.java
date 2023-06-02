@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class sign_in extends AppCompatActivity {
     ActivitySignInBinding binding;
@@ -24,12 +25,25 @@ public class sign_in extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
 
-        SessionManeger sessionManeger = new SessionManeger(sign_in.this);
-        int userID = sessionManeger.getSession();
-        if (userID !=-1){
+//        SessionManeger sessionManeger = new SessionManeger(sign_in.this);
+//        int userID = sessionManeger.getSession();
+//        if (userID !=-1){
+//            Intent intent = new Intent(getApplicationContext(), Home.class);
+//            startActivity(intent);
+//        }
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            // User is logged in
+            String uid = currentUser.getUid();
+
             Intent intent = new Intent(getApplicationContext(), Home.class);
-            startActivity(intent);
+           startActivity(intent);
+//            FirebaseAuth.getInstance().signOut();
+        } else {
+            // User is not logged in
+            // Redirect to login screen or display appropriate UI
         }
+
     }
 
     @Override
@@ -67,10 +81,10 @@ public class sign_in extends AppCompatActivity {
                                @Override
                                public void onSuccess(AuthResult authResult) {
 
-                                   UserS userS = new UserS(password,email);
-
-                                   SessionManeger sessionManeger = new SessionManeger(sign_in.this);
-                                   sessionManeger.saveSession(userS);
+//                                   UserS userS = new UserS(password,email);
+//
+//                                   SessionManeger sessionManeger = new SessionManeger(sign_in.this);
+//                                   sessionManeger.saveSession(userS);
 
                                    Intent intent = new Intent(getApplicationContext(), Home.class);
                                    startActivity(intent);

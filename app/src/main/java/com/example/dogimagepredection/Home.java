@@ -7,9 +7,12 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dogimagepredection.databinding.ActivityHomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Home extends AppCompatActivity {
     ActivityHomeBinding binding;
+    FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +43,18 @@ public class Home extends AppCompatActivity {
         binding.logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SessionManeger sessionManeger= new SessionManeger(Home.this);
-                sessionManeger.remmoveSesssion();
-                Intent intent = new Intent(getApplicationContext(),sign_in.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+//
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                if (currentUser != null) {
+                    // User is logged in
+                    String uid = currentUser.getUid();
+                    Intent intent = new Intent(getApplicationContext(),sign_in.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    FirebaseAuth.getInstance().signOut();
+                }
+
+
             }
         });
         binding.rating.setOnClickListener(new View.OnClickListener() {
