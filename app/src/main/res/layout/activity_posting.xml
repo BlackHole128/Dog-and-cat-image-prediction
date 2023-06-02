@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".Posting">
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/myname"-->
+<!--        android:text="i am a fool"/>-->
+
+    <EditText
+        android:id="@+id/postabout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/dateIcon"
+        android:background="@drawable/addpost"
+        android:hint="              wahts on your mind?"
+        android:padding="10dp"
+        android:text="" />
+
+        <ImageView
+            android:id="@+id/postimage"
+            android:src="@drawable/ic_add_post_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/addpost"
+            android:layout_marginTop="1dp"
+            android:text="Post" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/posts"
+        android:background="@color/place_autocomplete_prediction_primary_text_highlight"/>
+
+</LinearLayout>

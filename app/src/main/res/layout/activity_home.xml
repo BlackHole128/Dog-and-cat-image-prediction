@@ -81,7 +81,55 @@
             android:gravity="center"
             android:text="YouTube\nVideo"/>
     </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/post"
+            android:layout_margin="45dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="#87CEEB">
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="120dp"
+                android:gravity="center"
+                android:text="post"/>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rating"
+                android:layout_margin="45dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="#87CEEB">
+                <TextView
+                    android:layout_width="85dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+                    android:text="Rating"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="45dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="#87CEEB">
+                <TextView
+                    android:layout_width="85dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+                    android:text="Location"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
