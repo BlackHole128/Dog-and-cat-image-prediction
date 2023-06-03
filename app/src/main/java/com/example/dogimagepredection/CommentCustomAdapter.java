@@ -30,9 +30,12 @@ public class CommentCustomAdapter extends ArrayAdapter<UserComment> {
         UserComment userComment = userCommentList.get(position);
 
         TextView commentTextView= view.findViewById(R.id.commentTextView_Id);
+        TextView nameTextVuew = view.findViewById(R.id.nameTextView_Id);
         TextView rateTextView=view.findViewById(R.id.rateTextView_Id);
 
+
         commentTextView.setText("Comment :"+userComment.getComment());
+        nameTextVuew.setText("User :"+userComment.getName());
         rateTextView.setText("Rating :"+userComment.getRating());
         return view;
     }

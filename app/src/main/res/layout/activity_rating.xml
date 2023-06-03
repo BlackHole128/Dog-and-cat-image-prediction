@@ -13,6 +13,8 @@
         android:gravity="center">
 
         <TextView
+
+            android:id="@+id/nameU"
             android:layout_width="218dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
