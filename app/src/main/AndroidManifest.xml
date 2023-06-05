@@ -19,6 +19,9 @@
         android:theme="@style/Theme.DogImagePredection"
         tools:targetApi="31">
         <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
             android:name=".Rating"
             android:exported="false" />
         <activity

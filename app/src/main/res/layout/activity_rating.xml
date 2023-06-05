@@ -103,9 +103,11 @@
         android:padding="10dp">
         <ListView
             android:id="@+id/listView_Id"
-            android:listSelector="#D97EE8"
+            android:listSelector="@android:color/transparent"
             android:dividerHeight="2dp"
-            android:divider="#E2FFEB3B"
+            android:scrollbars="vertical"
+            android:divider="@android:color/transparent"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
