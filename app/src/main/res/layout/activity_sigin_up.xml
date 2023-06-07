@@ -9,6 +9,10 @@
     android:orientation="vertical"
     android:id="@+id/mysignup"
     android:background="#87CEEB">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,4 +112,5 @@
                 android:text="sign up" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+    </ScrollView>
 </LinearLayout>

@@ -7,7 +7,20 @@
     android:orientation="vertical"
     android:gravity="center"
     >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+    <androidx.cardview.widget.CardView
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
 
+        android:elevation="20dp"
+        android:layout_gravity="center"
+        android:padding="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="#bdc3c7">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,6 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Remember me"
+            android:buttonTint="@color/rose_red"
             android:textColor="#BC13FE"/>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -122,7 +136,7 @@
             android:layout_marginTop="10dp"
             android:background="#00000000"
             android:text="Forget Password"
-            android:textColor="#E9C46A"
+            android:textColor="@color/rose_red"
             android:textSize="14sp"
             android:textStyle="bold"
             />
@@ -158,7 +172,8 @@
 
 
     </LinearLayout>
-
+    </androidx.cardview.widget.CardView>
+    </ScrollView>
 
 </LinearLayout>
 
