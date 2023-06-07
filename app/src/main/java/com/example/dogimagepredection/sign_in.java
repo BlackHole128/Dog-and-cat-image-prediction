@@ -22,29 +22,6 @@ public class sign_in extends AppCompatActivity {
     ProgressDialog progressDialog;
 
 
-    protected void onStart(){
-        super.onStart();
-
-//        SessionManeger sessionManeger = new SessionManeger(sign_in.this);
-//        int userID = sessionManeger.getSession();
-//        if (userID !=-1){
-//            Intent intent = new Intent(getApplicationContext(), Home.class);
-//            startActivity(intent);
-//        }
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (currentUser != null) {
-            // User is logged in
-            String uid = currentUser.getUid();
-
-            Intent intent = new Intent(getApplicationContext(), Home.class);
-           startActivity(intent);
-//            FirebaseAuth.getInstance().signOut();
-        } else {
-            // User is not logged in
-            // Redirect to login screen or display appropriate UI
-        }
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +45,12 @@ public class sign_in extends AppCompatActivity {
 //            }
 //        });
 
+
+       binding.remember.setChecked(true);
+
+
+
+
         binding.signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +72,9 @@ public class sign_in extends AppCompatActivity {
                                    Intent intent = new Intent(getApplicationContext(), Home.class);
                                    startActivity(intent);
                                    progressDialog.cancel();
+                                   binding.username.getEditText().setText("");
+                                   binding.password.getEditText().setText("");
+
 
                                }
                            })
@@ -147,4 +133,37 @@ public class sign_in extends AppCompatActivity {
             }
         });
     }
+
+
+    protected void onStart(){
+        super.onStart();
+
+//        SessionManeger sessionManeger = new SessionManeger(sign_in.this);
+//        int userID = sessionManeger.getSession();
+//        if (userID !=-1){
+//            Intent intent = new Intent(getApplicationContext(), Home.class);
+//            startActivity(intent);
+//        }
+
+        if(binding.remember.isChecked()) {
+
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+            if (currentUser != null) {
+                // User is logged in
+                String uid = currentUser.getUid();
+
+                Intent intent = new Intent(getApplicationContext(), Home.class);
+                startActivity(intent);
+//            FirebaseAuth.getInstance().signOut();
+            } else {
+                // User is not logged in
+                // Redirect to login screen or display appropriate UI
+            }
+        }
+
+    }
+
+
+
+
 }

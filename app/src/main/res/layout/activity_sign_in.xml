@@ -94,6 +94,13 @@
             </com.google.android.material.textfield.TextInputEditText>
 
         </com.google.android.material.textfield.TextInputLayout>
+        <CheckBox
+            android:id="@+id/remember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Remember me"
+            android:textColor="#BC13FE"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sign_in"
