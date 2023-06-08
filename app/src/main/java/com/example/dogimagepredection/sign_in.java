@@ -2,6 +2,7 @@ package com.example.dogimagepredection;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -14,13 +15,13 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class sign_in extends AppCompatActivity {
     ActivitySignInBinding binding;
     FirebaseAuth firebaseAuth;
     ProgressDialog progressDialog;
 
+    public static final String SHARED_PREFS ="sharedPrefs";
 
 
     @Override
@@ -46,7 +47,11 @@ public class sign_in extends AppCompatActivity {
 //        });
 
 
-       binding.remember.setChecked(true);
+
+
+
+
+       checkBox();
 
 
 
@@ -63,14 +68,24 @@ public class sign_in extends AppCompatActivity {
                            .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                @Override
                                public void onSuccess(AuthResult authResult) {
+                                   if(binding.remember.isChecked()) {
+                                       SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                                       SharedPreferences.Editor editor = sharedPreferences.edit();
+                                       editor.putString("name", "true");
+                                       editor.apply();
+                                       Intent intent = new Intent(getApplicationContext(), Home.class);
+                                       startActivity(intent);
+                                       finish();
+                                   }
+                                   else {
+                                       SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+                                       SharedPreferences.Editor editor = sharedPreferences.edit();
+                                       editor.putString("name","");
+                                       editor.apply();
+                                       Intent intent = new Intent(getApplicationContext(), Home.class);
+                                       startActivity(intent);
+                                   }
 
-//                                   UserS userS = new UserS(password,email);
-//
-//                                   SessionManeger sessionManeger = new SessionManeger(sign_in.this);
-//                                   sessionManeger.saveSession(userS);
-
-                                   Intent intent = new Intent(getApplicationContext(), Home.class);
-                                   startActivity(intent);
                                    progressDialog.cancel();
                                    binding.username.getEditText().setText("");
                                    binding.password.getEditText().setText("");
@@ -134,35 +149,48 @@ public class sign_in extends AppCompatActivity {
         });
     }
 
+    private void checkBox() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        String chake = sharedPreferences.getString("name","");
+        if(chake.equals("true")){
+            Intent intent = new Intent(getApplicationContext(), Home.class);
+            startActivity(intent);
+            finish();
 
-    protected void onStart(){
-        super.onStart();
-
-//        SessionManeger sessionManeger = new SessionManeger(sign_in.this);
-//        int userID = sessionManeger.getSession();
-//        if (userID !=-1){
-//            Intent intent = new Intent(getApplicationContext(), Home.class);
-//            startActivity(intent);
-//        }
-
-        if(binding.remember.isChecked()) {
-
-            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-            if (currentUser != null) {
-                // User is logged in
-                String uid = currentUser.getUid();
-
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                startActivity(intent);
-//            FirebaseAuth.getInstance().signOut();
-            } else {
-                // User is not logged in
-                // Redirect to login screen or display appropriate UI
-            }
         }
+
 
     }
 
+
+//    protected void onStart(){
+//        super.onStart();
+//
+////        SessionManeger sessionManeger = new SessionManeger(sign_in.this);
+////        int userID = sessionManeger.getSession();
+////        if (userID !=-1){
+////            Intent intent = new Intent(getApplicationContext(), Home.class);
+////            startActivity(intent);
+////        }
+//
+//        if(binding.remember.isChecked()) {
+//
+//            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+//            if (currentUser != null) {
+//                // User is logged in
+//                String uid = currentUser.getUid();
+//
+//                Intent intent = new Intent(getApplicationContext(), Home.class);
+//                startActivity(intent);
+////            FirebaseAuth.getInstance().signOut();
+//            }
+//            else
+//            {
+//
+//            }
+//        }
+//
+//    }
 
 
 

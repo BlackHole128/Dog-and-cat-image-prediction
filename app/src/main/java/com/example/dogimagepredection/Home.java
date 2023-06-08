@@ -1,6 +1,9 @@
 package com.example.dogimagepredection;
 
+import static com.example.dogimagepredection.sign_in.SHARED_PREFS;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,7 +20,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.dogimagepredection.databinding.ActivityHomeBinding;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -26,6 +28,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     NavigationView navigationView;
 
     private DrawerLayout drawerLayout;
+
+
 
 
     @Override
@@ -127,19 +131,29 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         switch (item.getItemId()) {
             case R.id.nav_logout:
 
-                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                if (currentUser != null) {
-                    // User is logged in
-                    String uid = currentUser.getUid();
-                    Intent intent = new Intent(getApplicationContext(),sign_in.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                    FirebaseAuth.getInstance().signOut();
-                }
+//                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+//                if (currentUser != null) {
+//                    // User is logged in
+//                    String uid = currentUser.getUid();
+//                    Intent intent = new Intent(getApplicationContext(),sign_in.class);
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    startActivity(intent);
+//                    FirebaseAuth.getInstance().signOut();
+//                }
+                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("name","");
+                editor.apply();
+                Intent intent = new Intent(getApplicationContext(),sign_in.class);
+                startActivity(intent);
+                finish();
+
+
+
                 return true;
             case R.id.nav_home:
-                Intent intent = new Intent(getApplicationContext(),Home.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(getApplicationContext(),Home.class);
+                startActivity(intent1);
 
                 return true;
             case android.R.id.home:
@@ -166,15 +180,22 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 break;
             case R.id.nav_logout:
                 Toast.makeText(this, "Logout!", Toast.LENGTH_SHORT).show();
-                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                if (currentUser != null) {
-                    // User is logged in
-                    String uid = currentUser.getUid();
-                    Intent intent = new Intent(getApplicationContext(),sign_in.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                    FirebaseAuth.getInstance().signOut();
-                }
+//                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+//                if (currentUser != null) {
+//                    // User is logged in
+//                    String uid = currentUser.getUid();
+//                    Intent intent = new Intent(getApplicationContext(),sign_in.class);
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    startActivity(intent);
+//                    FirebaseAuth.getInstance().signOut();
+//                }
+                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("name","");
+                editor.apply();
+                Intent intent = new Intent(getApplicationContext(),sign_in.class);
+                startActivity(intent);
+                finish();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
