@@ -8,7 +8,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,6 +41,21 @@ public class SiginUp extends AppCompatActivity {
     private DatePickerDialog picker;
 
     ProgressDialog progressDialog;
+    private String selectedDistrict, selectedState;                 //vars to hold the values of selected State and District
+    private TextView tvStateSpinner, tvDistrictSpinner;             //declaring TextView to show the errors
+    private Spinner stateSpinner, districtSpinner;                  //Spinners
+    private ArrayAdapter<CharSequence> stateAdapter, districtAdapter;   //declare adapters for the spinners
+    String[] defau ={"District"};
+    String[] barishalDistricts = {"Barishal", "Barguna", "Bhola", "Jhalokati", "Patuakhali", "Pirojpur"};
+    String[] chattogramDistricts = {"Chattogram", "Bandarban", "Brahmanbaria", "Chandpur", "Cumilla", "Cox's Bazar", "Feni", "Khagrachari", "Lakshmipur", "Noakhali", "Rangamati"};
+    String[] dhakaDistricts = {"Dhaka", "Faridpur", "Gazipur", "Gopalganj", "Kishoreganj", "Madaripur", "Manikganj", "Munshiganj", "Narayanganj", "Narsingdi", "Rajbari", "Shariatpur", "Tangail"};
+    String[] khulnaDistricts = {"Khulna", "Bagerhat", "Chuadanga", "Jashore", "Jhenaidah", "Kushtia", "Magura", "Meherpur", "Narail", "Satkhira"};
+    String[] rajshahiDistricts = {"Rajshahi", "Bogra", "Chapainawabganj", "Joypurhat", "Naogaon", "Natore", "Pabna", "Sirajganj"};
+    String[] rangpurDistricts = {"Rangpur", "Dinajpur", "Gaibandha", "Kurigram", "Lalmonirhat", "Nilphamari", "Panchagarh", "Thakurgaon"};
+    String[] mymensinghDistricts = {"Mymensingh", "Jamalpur", "Netrokona", "Sherpur"};
+    String[] sylhetDistricts = {"Sylhet", "Habiganj", "Moulvibazar", "Sunamganj"};
+
+
 
 
 
@@ -237,6 +256,96 @@ public class SiginUp extends AppCompatActivity {
 
             }
         });
+
+
+
+
+
+
+
+
+
+
+        //State Spinner Initialisation
+        stateSpinner = findViewById(R.id.spinner1);    //Finds a view that was identified by the android:id attribute in xml
+        String[] cities = {"Divition","Barishal", "Chattogram", "Dhaka", "Khulna", "Rajshahi", "Rangpur", "Mymensingh", "Sylhet"
+        };
+
+        //Populate ArrayAdapter using string array and a spinner layout that we will define
+        stateAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, cities);
+
+        // Specify the layout to use when the list of choices appear
+        stateAdapter.setDropDownViewResource(R.layout.dropdown_list2);
+
+        stateSpinner.setAdapter(stateAdapter);            //Set the adapter to the spinner to populate the State Spinner
+
+        //When any item of the stateSpinner uis selected
+        stateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //Define City Spinner but we will populate the options through the selected state
+                districtSpinner = findViewById(R.id.spinner2);
+
+                selectedState = stateSpinner.getSelectedItem().toString();      //Obtain the selected State
+
+                int parentID = parent.getId();
+                if (parentID == R.id.spinner1){
+                    switch (selectedState){
+                        case "Divition": districtAdapter =new ArrayAdapter<>(parent.getContext(), android.R.layout.simple_spinner_dropdown_item, defau);;
+                            break;
+                        case "Barishal": districtAdapter = new ArrayAdapter<>(parent.getContext(), android.R.layout.simple_spinner_dropdown_item, barishalDistricts);
+                            break;
+                        case "Chattogram": districtAdapter = new ArrayAdapter<>(parent.getContext(), android.R.layout.simple_spinner_dropdown_item, chattogramDistricts);
+                            break;
+                        case "Dhaka": districtAdapter = new ArrayAdapter<>(parent.getContext(), android.R.layout.simple_spinner_dropdown_item, dhakaDistricts);
+                            break;
+                        case "Khulna": new ArrayAdapter<>(parent.getContext(), android.R.layout.simple_spinner_dropdown_item, khulnaDistricts);
+                            break;
+                        case "Chhattisgarh": districtAdapter = new ArrayAdapter<>(parent.getContext(), android.R.layout.simple_spinner_dropdown_item, chattogramDistricts);
+                            break;
+                        case "Mymensingh": districtAdapter = new ArrayAdapter<>(parent.getContext(), android.R.layout.simple_spinner_dropdown_item, mymensinghDistricts);
+                            break;
+                        case "Rajshahi": districtAdapter = new ArrayAdapter<>(parent.getContext(), android.R.layout.simple_spinner_dropdown_item, rajshahiDistricts);
+                            break;
+                        case "Rangpur": districtAdapter = new ArrayAdapter<>(parent.getContext(), android.R.layout.simple_spinner_dropdown_item,rangpurDistricts);
+                            break;
+                        case "Sylhet": districtAdapter = new ArrayAdapter<>(parent.getContext(), android.R.layout.simple_spinner_dropdown_item, sylhetDistricts);
+                            break;
+
+                        default:  break;
+                    }
+                    districtAdapter.setDropDownViewResource(R.layout.dropdown_list2);     // Specify the layout to use when the list of choices appears
+                    districtSpinner.setAdapter(districtAdapter);        //Populate the list of Districts in respect of the State selected
+
+                    //To obtain the selected District from the spinner
+                    districtSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            selectedDistrict = districtSpinner.getSelectedItem().toString();
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
 
 
     }

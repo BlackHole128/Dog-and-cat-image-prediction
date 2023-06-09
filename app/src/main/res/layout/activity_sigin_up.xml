@@ -67,6 +67,24 @@
                 android:textColor="#304c5e"
                 android:maxLength="11"
                 android:padding="10dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="130dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/edittext_background"
+                android:layout_height="50dp"/>
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="130dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/edittext_background"
+                android:layout_height="50dp"/>
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/email"
