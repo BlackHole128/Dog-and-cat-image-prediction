@@ -258,6 +258,32 @@ public class SiginUp extends AppCompatActivity {
         });
 
 
+        final Pattern Phone_Number = Pattern.compile("^(?:01[3-9]\\d{8})$");
+        binding.mobilenumber.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String phone = binding.mobilenumber.getText().toString().trim();
+                if(!Phone_Number.matcher(phone).matches() && (phone!=null)){
+                    binding.mobilenumber.setError("Not valid number");
+
+                }
+                else {
+
+                }
+            }
+        });
+
+
 
 
 

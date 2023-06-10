@@ -3,8 +3,7 @@ package com.example.dogimagepredection;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+import android.webkit.WebView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,9 +19,15 @@ public class splash extends AppCompatActivity {
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.textanimation);
-        binding.welcome.startAnimation(animation);
-        binding.spalashImage.startAnimation(animation);
+        WebView webView = findViewById(R.id.webview);
+
+// Enable JavaScript (optional, if your HTML page requires it)
+        webView.getSettings().setJavaScriptEnabled(true);
+
+// Load the HTML page
+        webView.loadUrl("file:///android_asset/gsap.html");
+
+
         h.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -30,7 +35,7 @@ public class splash extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }
-        },3000);
+        },5000);
 
 
 

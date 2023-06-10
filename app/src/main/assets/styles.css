@@ -1,0 +1,13 @@
+body {
+    overflow: hidden;
+    margin: 0;
+    background-color: rgb(33, 0, 0);
+  }
+  
+  #animation-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  
