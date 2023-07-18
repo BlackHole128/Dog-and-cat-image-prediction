@@ -14,7 +14,7 @@
 <!--        android:text="i am a fool"/>-->
 
     <EditText
-        android:id="@+id/postabout"
+        android:id="@+id/inputAddPost_Id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/dateIcon"
@@ -24,7 +24,7 @@
         android:text="" />
 
         <ImageView
-            android:id="@+id/postimage"
+            android:id="@+id/addImagePost_Id"
             android:src="@drawable/ic_add_post_image"
             android:layout_width="40dp"
             android:layout_height="40dp" />
@@ -32,7 +32,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:id="@+id/addpost"
+            android:id="@+id/send_button"
             android:layout_marginTop="1dp"
             android:text="Post" />
 
