@@ -19,6 +19,9 @@
         android:theme="@style/Theme.DogImagePredection"
         tools:targetApi="31">
         <activity
+            android:name=".ApiD"
+            android:exported="false" />
+        <activity
             android:name=".gsap"
             android:exported="false" />
         <activity
