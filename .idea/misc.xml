@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1835" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/drawable/addpost.xml" value="0.1835" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/drawable/dopdown_items.xml" value="0.196" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/drawable/edittext_background.xml" value="0.1835" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1835" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/drawable/ic_send.xml" value="0.196" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/drawable/shadow_effect.xml" value="0.1835" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/font/mystyle.xml" value="0.2791666666666667" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/activity_api_d.xml" value="0.25" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/activity_gsap.xml" value="0.25" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/activity_home.xml" value="0.264" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/activity_maps.xml" value="0.25" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/activity_maps2.xml" value="0.25" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/activity_posting.xml" value="0.25" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/activity_profile.xml" value="0.2359375" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/activity_rating.xml" value="0.25" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/activity_sigin_up.xml" value="0.25" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/activity_videos.xml" value="0.25" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/appbar.xml" value="0.18671875" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/comment_sample_layout.xml" value="0.264" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/dropdown_list.xml" value="0.24895833333333334" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/dropdown_list2.xml" value="0.24895833333333334" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/fragment_logout.xml" value="0.2359375" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/fragment_profile.xml" value="0.2359375" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/list_item.xml" value="0.24895833333333334" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/layout/nav_hader.xml" value="0.24895833333333334" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/menu/menu.xml" value="0.18671875" />
+        <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1835" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
