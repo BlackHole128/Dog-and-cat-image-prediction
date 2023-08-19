@@ -71,7 +71,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         binding.post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),PDfreport.class);
+                Intent intent = new Intent(getApplicationContext(),Posting.class);
                 startActivity(intent);
             }
         });

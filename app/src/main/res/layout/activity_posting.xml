@@ -13,16 +13,6 @@
 <!--        android:id="@+id/myname"-->
 <!--        android:text="i am a fool"/>-->
 
-    <EditText
-        android:id="@+id/inputAddPost_Id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/dateIcon"
-        android:background="@drawable/addpost"
-        android:hint="              wahts on your mind?"
-        android:padding="10dp"
-        android:text="" />
-
         <ImageView
             android:id="@+id/addImagePost_Id"
             android:src="@drawable/ic_add_post_image"
@@ -34,12 +24,13 @@
             android:layout_height="40dp"
             android:id="@+id/send_button"
             android:layout_marginTop="1dp"
+            android:enabled="false"
             android:text="Post" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/posts"
-        android:background="@color/place_autocomplete_prediction_primary_text_highlight"/>
+        android:padding="10dp"
+        android:id="@+id/posts" />
 
 </LinearLayout>

@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Dog image predection/app/src/main/res/layout/activity_posting.xml" value="0.25" />
+        <entry key="..\:/Dog image predection/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Dog image predection/app/src/main/res/layout/post_items.xml" value="0.4" />
         <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1835" />
         <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/drawable/addpost.xml" value="0.1835" />
         <entry key="..\:/all androied apps/Dog image predection/app/src/main/res/drawable/dopdown_items.xml" value="0.196" />

@@ -4,7 +4,8 @@ public class Postmodel {
     private String postId;
     private String postImage;
     private String postedby;
-    private String postDec;
+    private long postLikes;
+    private long comments;
     private long postedAt;
 
     public long getPostedAt() {
@@ -15,11 +16,10 @@ public class Postmodel {
         this.postedAt = postedAt;
     }
 
-    public Postmodel(String postId, String postImage, String postedby, String postDec) {
+    public Postmodel(String postId, String postImage, String postedby) {
         this.postId = postId;
         this.postImage = postImage;
         this.postedby = postedby;
-        this.postDec = postDec;
     }
 
     public Postmodel() {
@@ -53,11 +53,19 @@ public class Postmodel {
         this.postedby = postedby;
     }
 
-    public String getPostDec() {
-        return postDec;
+    public long getPostLikes() {
+        return postLikes;
     }
 
-    public void setPostDec(String postDec) {
-        this.postDec = postDec;
+    public void setPostLikes(long postLikes) {
+        this.postLikes = postLikes;
+    }
+
+    public long getComments() {
+        return comments;
+    }
+
+    public void setComments(long comments) {
+        this.comments = comments;
     }
 }

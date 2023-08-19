@@ -56,11 +56,6 @@ public class SiginUp extends AppCompatActivity {
     String[] sylhetDistricts = {"Sylhet", "Habiganj", "Moulvibazar", "Sunamganj"};
 
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

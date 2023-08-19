@@ -2,6 +2,7 @@ package com.example.dogimagepredection;
 
 public class UserModel {
     private String name,number,BirthDay,eamil;
+    private String userImage;
 
     public UserModel() {
     }
@@ -43,5 +44,13 @@ public class UserModel {
 
     public void setBirthDay(String birthDay) {
         BirthDay = birthDay;
+    }
+
+    public String getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
     }
 }
