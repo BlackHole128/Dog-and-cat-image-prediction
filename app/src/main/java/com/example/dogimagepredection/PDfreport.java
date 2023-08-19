@@ -13,8 +13,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,83 +33,36 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class Profile extends AppCompatActivity {
-
-
-
-
-   TextView textView;
-   TextView date;
-   TextView email;
-   TextView number;
-
-  ImageView imageView;
-  Button print;
+public class PDfreport extends AppCompatActivity {
+    EditText editText;
+    Button button;
+    PdfDocument document;
     String[] infoArr = new String[] {"Name", "Email", "Birth date", "Mobile", "Gender"};
     String[] userInfo = new String[5];
-
-
+    FirebaseUser firebaseUser;
+    String fullName, email, dob, gender, mobile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-        textView = findViewById(R.id.pro_name);
-        date = findViewById(R.id.pro_birthday);
-        email = findViewById(R.id.porgmail);
-        number = findViewById(R.id.pro_number);
-        imageView = findViewById(R.id.profile_image);
-        print = findViewById(R.id.Print);
+        setContentView(R.layout.activity_pdfreport);
 
-
+        editText = findViewById(R.id.pdfE);
+        button = findViewById(R.id.pdfB);
 
         ActivityCompat.requestPermissions(this, new String[] {
                 Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
-
-       print.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               createReport();
-           }
-       });
-
-
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        String userId = currentUser.getUid();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("User").document(userId)
-                .get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        // do something with the user data
-                      String  name1 = (String) documentSnapshot.get("name");
-                      textView.setText(name1);
-
-                      String email1 = (String) documentSnapshot.get("eamil");
-                      email.setText(email1);
-
-                      String date1 = (String) documentSnapshot.get("birthDay");
-                      date.setText(date1);
-
-
-                      String number1 = (String) documentSnapshot.get("number");
-                      number.setText(number1);
-
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        // handle the error
-                    }
-                });
-
-
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createReport();
+            }
+        });
 
 
     }
+
 
     public Task<String[]> getUserData() {
         // create a TaskCompletionSource object
@@ -135,7 +87,7 @@ public class Profile extends AppCompatActivity {
                         String date1 = (String) documentSnapshot.get("birthDay");
 
 
-                        userInfo[2] = date1;
+                            userInfo[2] = date1;
 
 
                         String number1 = (String) documentSnapshot.get("number");
@@ -156,6 +108,16 @@ public class Profile extends AppCompatActivity {
         // return the task created by the TaskCompletionSource
         return tcs.getTask();
     }
+
+
+
+
+
+
+
+
+
+
     private void createReport() {
 
 
@@ -231,10 +193,10 @@ public class Profile extends AppCompatActivity {
                         pdfDocument.writeTo(outputStream);
                         pdfDocument.close();
                         outputStream.close();
-                        Toast.makeText(Profile.this, "PDF saved successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PDfreport.this, "PDF saved successfully", Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
                         e.printStackTrace();
-                        Toast.makeText(Profile.this, "Failed to save PDF", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PDfreport.this, "Failed to save PDF", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     // handle the error
