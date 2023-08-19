@@ -29,7 +29,7 @@ import java.nio.ByteOrder;
 
 public class MainActivity extends AppCompatActivity {
     Button select,capture,map;
-    TextView result;
+    TextView result, probability1;
     ImageView image;
     Bitmap bitmap;
 
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         result = findViewById(R.id.result);
         image = findViewById(R.id.image);
         map = findViewById(R.id.map1);
+        probability1 = findViewById(R.id.probability);
 
 
        map.setOnClickListener(new View.OnClickListener() {
@@ -166,12 +167,19 @@ public class MainActivity extends AppCompatActivity {
             }
 
             String[] classes = {"Dog","cat"};
-            if(classes[max]=="Dog") {
-                result.setText(classes[max] +'\n'+classes[max] +" with probability" + maxprob +'\n'+"cat with probaility"+(1-maxprob));
+//            if(classes[max]=="Dog") {
+//                result.setText(classes[max] +'\n'+classes[max] +" with probability" + maxprob +'\n'+"cat with probaility"+(1-maxprob));
+//            }
+//            else {
+//                result.setText(classes[max] +'\n'+classes[max] + " with probability" + maxprob +'\n'+"dog with probability"+(1-maxprob));
+//            }
+            result.setText(classes[max] );
+            String s = "";
+            for (int i =0; i< classes.length;i++){
+                s += String.format("%s: %.1f%%\n",classes[i],probability[i]*100);
             }
-            else {
-                result.setText(classes[max] +'\n'+classes[max] + " with probability" + maxprob +'\n'+"dog with probability"+(1-maxprob));
-            }
+            probability1.setText(s);
+
 
 
             // Releases model resources if no longer used.

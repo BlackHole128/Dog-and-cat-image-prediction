@@ -41,6 +41,7 @@ public class Rating extends AppCompatActivity {
     DatabaseReference databaseReference;
 
     String name;
+    float avgRating;
 
 
     @SuppressLint("WrongViewCast")
@@ -52,7 +53,7 @@ public class Rating extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("RatingUser");
         rateRatingBar= findViewById(R.id.rateRatingBar_Id);
         commentEditText= findViewById(R.id.commentEditText_Id);
-        nameU = findViewById(R.id.nameU);
+        nameU = findViewById(R.id.avg);
         buttonImageView= findViewById(R.id.buttonImageView_Id);
         listView = findViewById(R.id.listView_Id);
 
@@ -96,6 +97,8 @@ public class Rating extends AppCompatActivity {
 
         });
 
+
+
     }
 
 //    public void loadData() {
@@ -124,6 +127,20 @@ public class Rating extends AppCompatActivity {
 
     }
 
+    private float calculateAverageRating(List<UserComment> userCommentList) {
+        if (userCommentList.isEmpty()) {
+            return 0; // Return 0 if there are no ratings
+        }
+
+        float totalRating = 0;
+        for (UserComment userComment : userCommentList) {
+            totalRating += Float.parseFloat(userComment.getRating());
+        }
+
+        return totalRating / userCommentList.size();
+    }
+
+
     @Override
     protected void onStart() {
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -137,6 +154,9 @@ public class Rating extends AppCompatActivity {
 
                 }
                 listView.setAdapter(commentCustomAdapter);
+                float averageRating = calculateAverageRating(userCommentList);
+                nameU.setText(String.format("%.2f", averageRating));
+
 
             }
 
@@ -147,5 +167,7 @@ public class Rating extends AppCompatActivity {
         });
         super.onStart();
     }
+
+
 
 }

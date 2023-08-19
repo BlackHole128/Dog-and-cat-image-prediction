@@ -25,7 +25,8 @@
             android:id="@+id/send_button"
             android:layout_marginTop="1dp"
             android:enabled="false"
-            android:text="Post" />
+            android:textAllCaps="false"
+            android:text="Uplode" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

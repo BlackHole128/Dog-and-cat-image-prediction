@@ -53,12 +53,21 @@
             android:text="map" />
 
     </LinearLayout>
+
     <TextView
         android:id="@+id/result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/line"
         android:text="results"
-        android:textSize="20sp"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/probability"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/result"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="20sp" />
 </RelativeLayout>
